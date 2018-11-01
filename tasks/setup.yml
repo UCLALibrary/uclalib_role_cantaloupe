@@ -22,7 +22,7 @@
 - name: Include the cantaloupe vhost custom configuration in the tomcat vhost file
   lineinfile:
     path: "/etc/httpd/vhosts.d/tomcatapps.httpd.conf"
-    line: "Include conf.d/cantaloupe.conf"
+    line: "  Include conf.d/cantaloupe.conf"
     insertafter: "ServerName"
     firstmatch: "yes"
   notify:
