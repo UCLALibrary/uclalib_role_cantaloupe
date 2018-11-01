@@ -7,7 +7,7 @@
     dest: "{{ cantaloupe_install_path }}"
     owner: "{{ cantaloupe_tomcat_user }}"
     group: "{{ cantaloupe_tomcat_user }}"
-    mode: "0640"
+    mode: "0750"
     creates: "{{ cantaloupe_install_path }}/cantaloupe-{{ cantaloupe_version }}"
 
 - name: Set correct ownership on the cantaloupe install directory
