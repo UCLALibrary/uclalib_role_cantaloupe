@@ -1,0 +1,13 @@
+---
+
+- name: restart cantaloupe
+  service:
+    name: cantaloupe
+    state: restarted
+    enabled: yes
+
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
+    enabled: yes

@@ -1,0 +1,29 @@
+## Cantaloupe Environment Variables ##
+
+# User account that will run the Fedora Tomcat server process
+TOMCAT_USER={{ cantaloupe_tomcat_user }}
+
+# Java options specific for Cantaloupe
+JAVA_OPTS="-Dcantaloupe.config={{ cantaloupe_properties_path }} ${JAVA_OPTS}"
+JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server ${JAVA_OPTS}"
+JAVA_OPTS="-Xms{{ cantaloupe_min_mem }} -Xmx{{ cantaloupe_max_mem }} ${JAVA_OPTS}"
+export JAVA_OPTS
+
+# Path to the common Tomcat binaries and libraries shared by all Tomcat instances
+export CATALINA_HOME=/usr/local/tomcat7
+
+# Path to this Fedora Tomcat instance
+export CATALINA_BASE={{ cantaloupe_base_dir }}
+
+# Set the location of the Catalina PID file
+export CATALINA_PID=$CATALINA_BASE/work/catalina.pid
+
+# Set the location of the Tomcat process lock file
+LOCKFILE=/var/lock/subsys/{{ cantaloupe_tomcat_user }}
+
+{% if cantaloupe_delegate_script_enabled == "true" %}
+# Set environment variables for cantaloupe delegate script
+# to interact with Fedora as an image source 
+export FEDORA_URL="{{ cantaloupe_fedora_url }}"
+export FEDORA_BASE_PATH="{{ cantaloupe_fedora_base_path }}"
+{% endif %}

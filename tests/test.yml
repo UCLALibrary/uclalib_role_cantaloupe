@@ -1,0 +1,6 @@
+---
+# This is a sample test
+
+- hosts: all
+  roles:
+   - uclalib_role_template

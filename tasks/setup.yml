@@ -1,0 +1,29 @@
+---
+
+- name: Put in place the cantaloupe tomcat environment variables file
+  template:
+    src: "cantaloupe_env.j2"
+    dest: "/etc/sysconfig/cantaloupe"
+    owner: "root"
+    group: "root"
+  notify:
+    - restart cantaloupe
+
+- name: Put in place the cantaloupe vhost custom configuration file
+  copy:
+    src: "cantaloupe_vhost_include.conf"
+    dest: "/etc/httpd/conf.d/cantaloupe.conf"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify:
+    - restart httpd
+
+- name: Include the cantaloupe vhost custom configuration in the tomcat vhost file
+  lineinfile:
+    path: "/etc/httpd/vhosts.d/tomcatapps.httpd.conf"
+    line: "Include conf.d/cantaloupe.conf"
+    insertafter: "ServerName"
+    firstmatch: "yes"
+  notify:
+    - restart httpd

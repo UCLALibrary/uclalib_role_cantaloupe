@@ -1,0 +1,11 @@
+---
+
+- name: Put in place cantaloupe delegate script
+  get_url:
+    url: "{{ cantaloupe_delegate_script_url }}"
+    dest: "{{ cantaloupe_delegate_script_pathname }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    mode: "0640"
+  notify:
+    - restart cantaloupe

@@ -1,0 +1,11 @@
+---
+
+- name: Put in place the cantaloupe.properties configuration file
+  template:
+    src: "cantaloupe.properties.j2"
+    dest: "{{ cantaloupe_properties_path }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    mode: "0640"
+  notify:
+    - restart cantaloupe

@@ -1,0 +1,370 @@
+###########################################################################
+# cantaloupe.properties configuration
+# For Cantaloupe v4.x
+# Created using https://github.com/medusa-project/cantaloupe/blob/release/4.0/cantaloupe.properties.sample
+#
+# THIS FILE IS MANAGED BY ANSIBLE
+###########################################################################
+
+###########################################################################
+# GENERAL SETTINGS
+###########################################################################
+
+temp_pathname = {{ cantaloupe_temp_pathname }}
+http.enabled = {{ cantaloupe_http_enabled }}
+http.host = {{ cantaloupe_http_host }}
+http.port = {{ cantaloupe_http_port }}
+http.http2.enabled = {{ cantaloupe_http_http2_enabled }}
+https.enabled = {{ cantaloupe_https_enabled }}
+https.host = {{ cantaloupe_https_host }}
+https.port = {{ cantaloupe_https_port }}
+https.http2.enabled = {{ cantaloupe_https_http2_enabled }}
+https.key_store_type = {{ cantaloupe_https_key_store_type }}
+https.key_store_password = {{ cantaloupe_https_key_store_password }}
+https.key_store_path = {{ cantaloupe_https_key_store_path }}
+https.key_password = {{ cantaloupe_https_key_password }}
+http.accept_queue_limit = {{ cantaloupe_http_accept_queue_limit }}
+base_uri = {{ cantaloupe_base_uri }}
+slash_substitute = {{ cantaloupe_slash_substitute }}
+max_pixels = {{ cantaloupe_max_pixels }}
+print_stack_trace_on_error_pages = {{ cantaloupe_print_stack_trace_on_error_pages }}
+
+###########################################################################
+# DELEGATE SCRIPT
+###########################################################################
+
+delegate_script.enabled = {{ cantaloupe_delegate_script_enabled }}
+delegate_script.pathname = {{ cantaloupe_delegate_script_pathname }}
+delegate_script.cache.enabled = {{ cantaloupe_delegate_script_cache_enabled }}
+
+###########################################################################
+# ENDPOINTS
+###########################################################################
+
+endpoint.public.auth.basic.enabled = {{ cantaloupe_endpoint_public_auth_basic_enabled }}
+endpoint.public.auth.basic.username = {{ cantaloupe_endpoint_public_auth_basic_username }}
+endpoint.public.auth.basic.secret = {{ cantaloupe_endpoint_public_auth_basic_secret }}
+endpoint.iiif.1.enabled = {{ cantaloupe_endpoint_iiif_1_enabled }}
+endpoint.iiif.2.enabled = {{ cantaloupe_endpoint_iiif_2_enabled}}
+endpoint.iiif.content_disposition = {{ cantaloupe_endpoint_iiif_content_disposition }}
+endpoint.iiif.min_size = {{ cantaloupe_endpoint_iiif_min_size }}
+endpoint.iiif.min_tile_size = {{ cantaloupe_endpoint_iiif_min_tile_size }}
+endpoint.iiif.2.restrict_to_sizes = {{ cantaloupe_endpoint_iiif_2_restrict_to_sizes }}
+endpoint.admin.enabled = {{ cantaloupe_endpoint_admin_enabled }}
+endpoint.admin.username = {{ cantaloupe_endpoint_admin_username }}
+endpoint.admin.secret = {{ cantaloupe_endpoint_admin_secret }}
+endpoint.api.enabled = {{ cantaloupe_endpoint_api_enabled }}
+endpoint.api.username = {{ cantaloupe_endpoint_api_username }}
+endpoint.api.secret = {{ cantaloupe_endpoint_api_secret }}
+
+###########################################################################
+# SOURCES
+###########################################################################
+
+source.static = {{ cantaloupe_source_static }}
+source.delegate = {{ cantaloupe_source_delegate }}
+
+#----------------------------------------
+# FilesystemSource
+#----------------------------------------
+
+FilesystemSource.lookup_strategy = {{ cantaloupe_FilesystemSource_lookup_strategy }}
+FilesystemSource.BasicLookupStrategy.path_prefix = {{ cantaloupe_FilesystemSource_BasicLookupStrategy_path_prefix }}
+FilesystemSource.BasicLookupStrategy.path_suffix = {{ cantaloupe_FilesystemSource_BasicLookupStrategy_path_suffix }}
+
+#----------------------------------------
+# HttpSource
+#----------------------------------------
+
+HttpSource.trust_all_certs = {{ cantaloupe_HttpSource_trust_all_certs }}
+HttpSource.request_timeout = {{ cantaloupe_HttpSource_request_timeout }}
+HttpSource.lookup_strategy = {{ cantaloupe_HttpSource_lookup_strategy }}
+HttpSource.BasicLookupStrategy.url_prefix = {{ cantaloupe_HttpSource_BasicLookupStrategy_url_prefix }}
+HttpSource.BasicLookupStrategy.url_suffix = {{ cantaloupe_HttpSource_BasicLookupStrategy_url_suffix }}
+HttpSource.BasicLookupStrategy.auth.basic.username = {{ cantaloupe_HttpSource_BasicLookupStrategy_auth_basic_username }}
+HttpSource.BasicLookupStrategy.auth.basic.secret = {{ cantaloupe_HttpSource_BasicLookupStrategy_auth_basic_secret }}
+
+#----------------------------------------
+# JdbcSource
+#----------------------------------------
+
+JdbcSource.url = {{ cantaloupe_JdbcSource_url }}
+JdbcSource.user = {{ cantaloupe_JdbcSource_user }}
+JdbcSource.password = {{ cantaloupe_JdbcSource_password }}
+JdbcSource.connection_timeout = {{ cantaloupe_JdbcSource_connection_timeout }}
+
+#----------------------------------------
+# S3Source
+#----------------------------------------
+
+S3Source.endpoint = {{ cantaloupe_S3Source_endpoint }}
+S3Source.access_key_id = {{ cantaloupe_S3Source_access_key_id }}
+S3Source.secret_key = {{ cantaloupe_S3Source_secret_key }}
+S3Source.max_connections = {{ cantaloupe_S3Source_max_connections }}
+S3Source.lookup_strategy = {{ cantaloupe_S3Source_lookup_strategy }}
+S3Source.BasicLookupStrategy.bucket.name = {{ cantaloupe_S3Source_BasicLookupStrategy_bucket_name }}
+S3Source.BasicLookupStrategy.path_prefix = {{ cantaloupe_S3Source_BasicLookupStrategy_path_prefix }}
+S3Source.BasicLookupStrategy.path_suffix = {{ cantaloupe_S3Source_BasicLookupStrategy_path_suffix }}
+
+#----------------------------------------
+# AzureStorageSource
+#----------------------------------------
+
+AzureStorageSource.account_name = {{ cantaloupe_AzureStorageSource_account_name }}
+AzureStorageSource.account_key = {{ cantaloupe_AzureStorageSource_account_key }}
+AzureStorageSource.container_name = {{ cantaloupe_AzureStorageSource_container_name }}
+AzureStorageSource.lookup_strategy = {{ cantaloupe_AzureStorageSource_lookup_strategy }}
+
+###########################################################################
+# PROCESSORS
+###########################################################################
+
+#----------------------------------------
+# Processor Selection
+#----------------------------------------
+
+processor.avi = {{ cantaloupe_processor_avi }}
+processor.bmp = {{ cantaloupe_processor_bmp }}
+processor.dcm = {{ cantaloupe_processor_dcm }}
+processor.flv = {{ cantaloupe_processor_flv }}
+processor.gif = {{ cantaloupe_processor_gif }}
+processor.jp2 = {{ cantaloupe_processor_jp2 }}
+processor.jpg = {{ cantaloupe_processor_jpg }}
+processor.mov = {{ cantaloupe_processor_mov }}
+processor.mp4 = {{ cantaloupe_processor_mp4 }}
+processor.mpg = {{ cantaloupe_processor_mpg }}
+processor.pdf = {{ cantaloupe_processor_pdf }}
+processor.png = {{ cantaloupe_processor_png }}
+processor.tif = {{ cantaloupe_processor_tif }}
+processor.webm = {{ cantaloupe_processor_webm }}
+processor.webp = {{ cantaloupe_processor_webp }}
+processor.fallback = {{ cantaloupe_processor_fallback }}
+
+#----------------------------------------
+# Global Processor Configuration
+#----------------------------------------
+
+processor.stream_retrieval_strategy = {{ cantaloupe_processor_stream_retrieval_strategy }}
+processor.fallback_retrieval_strategy = {{ cantaloupe_processor_fallback_retrieval_strategy }}
+processor.dpi = {{ cantaloupe_processor_dpi }}
+processor.normalize = {{ cantaloupe_processor_normalize }}
+processor.background_color = {{ cantaloupe_processor_background_color }}
+processor.downscale_filter = {{ cantaloupe_processor_downscale_filter }}
+processor.upscale_filter = {{ cantaloupe_processor_upscale_filter }}
+processor.sharpen = {{ cantaloupe_processor_sharpen }}
+processor.metadata.preserve = {{ cantaloupe_processor_metadata_preserve }}
+processor.metadata.respect_orientation = {{ cantaloupe_processor_metadata_respect_orientation }}
+processor.jpg.progressive = {{ cantaloupe_processor_jpg_progressive }}
+processor.jpg.quality = {{ cantaloupe_processor_jpg_quality }}
+processor.tif.compression = {{ cantaloupe_processor_tif_compression }}
+
+#----------------------------------------
+# ImageIO Plugin Preferences
+#----------------------------------------
+
+processor.imageio.bmp.reader = {{ cantaloupe_processor_imageio_bmp_reader }}
+processor.imageio.gif.reader = {{ cantaloupe_processor_imageio_gif_reader }}
+processor.imageio.gif.writer = {{ cantaloupe_processor_imageio_gif_writer }}
+processor.imageio.jpg.reader = {{ cantaloupe_processor_imageio_jpg_reader }}
+processor.imageio.jpg.writer = {{ cantaloupe_processor_imageio_jpg_writer }}
+processor.imageio.png.reader = {{ cantaloupe_processor_imageio_png_reader }}
+processor.imageio.png.writer = {{ cantaloupe_processor_imageio_png_writer }}
+processor.imageio.tif.reader = {{ cantaloupe_processor_imageio_tif_reader }}
+processor.imageio.tif.writer = {{ cantaloupe_processor_imageio_tif_writer }}
+
+#----------------------------------------
+# FfmpegProcessor
+#----------------------------------------
+
+FfmpegProcessor.path_to_binaries = {{ cantaloupe_FfmpegProcessor_path_to_binaries }}
+
+#----------------------------------------
+# GraphicsMagickProcessor
+#----------------------------------------
+
+GraphicsMagickProcessor.path_to_binaries = {{ cantaloupe_GraphicsMagickProcessor_path_to_binaries }}
+
+#----------------------------------------
+# ImageMagickProcessor
+#----------------------------------------
+
+ImageMagickProcessor.path_to_binaries = {{ cantaloupe_ImageMagickProcessor_path_to_binaries }}
+
+#----------------------------------------
+# KakaduDemoProcessor
+#----------------------------------------
+
+KakaduDemoProcessor.path_to_binaries = {{ cantaloupe_KakaduDemoProcessor_path_to_binaries }}
+
+#----------------------------------------
+# OpenJpegProcessor
+#----------------------------------------
+
+OpenJpegProcessor.path_to_binaries = {{ cantaloupe_OpenJpegProcessor_path_to_binaries }}
+
+###########################################################################
+# CLIENT-SIDE CACHING
+###########################################################################
+
+cache.client.enabled = {{ cantaloupe_cache_client_enabled }}
+cache.client.max_age = {{ cantaloupe_cache_client_max_age }}
+cache.client.shared_max_age = {{ cantaloupe_cache_client_shared_max_age }}
+cache.client.public = {{ cantaloupe_cache_client_public }}
+cache.client.private = {{ cantaloupe_cache_client_private }}
+cache.client.no_cache = {{ cantaloupe_cache_client_no_cache }}
+cache.client.no_store = {{ cantaloupe_cache_client_no_store }}
+cache.client.must_revalidate = {{ cantaloupe_cache_client_must_revalidate }}
+cache.client.proxy_revalidate = {{ cantaloupe_cache_client_proxy_revalidate }}
+cache.client.no_transform = {{ cantaloupe_cache_client_no_transform }}
+
+###########################################################################
+# SERVER-SIDE CACHING
+###########################################################################
+
+cache.server.source = {{ cantaloupe_cache_server_source }}
+cache.server.source.ttl_seconds = {{ cantaloupe_cache_server_source_ttl_seconds }}
+cache.server.derivative.enabled = {{ cantaloupe_cache_server_derivative_enabled }}
+cache.server.derivative = {{ cantaloupe_cache_server_derivative }}
+cache.server.derivative.ttl_seconds = {{ cantaloupe_cache_server_derivative_ttl_seconds }}
+cache.server.info.enabled = {{ cantaloupe_cache_server_info_enabled }}
+cache.server.purge_missing = {{ cantaloupe_cache_server_purge_missing }}
+cache.server.resolve_first = {{ cantaloupe_cache_server_resolve_first }}
+cache.server.worker.enabled = {{ cantaloupe_cache_server_worker_enabled }}
+cache.server.worker.interval = {{ cantaloupe_cache_server_worker_interval }}
+
+#----------------------------------------
+# FilesystemCache
+#----------------------------------------
+
+FilesystemCache.pathname = {{ cantaloupe_FilesystemCache_pathname }}
+FilesystemCache.dir.depth = {{ cantaloupe_FilesystemCache_dir_depth }}
+FilesystemCache.dir.name_length = {{ cantaloupe_FilesystemCache_dir_name_length }}
+
+#----------------------------------------
+# HeapCache
+#----------------------------------------
+
+HeapCache.target_size = {{ cantaloupe_HeapCache_target_size }}
+HeapCache.persist = {{ cantaloupe_HeapCache_persist }}
+HeapCache.persist.filesystem.pathname = {{ cantaloupe_HeapCache_persist_filesystem_pathname }}
+
+#----------------------------------------
+# JdbcCache
+#----------------------------------------
+
+JdbcCache.url = {{ cantaloupe_JdbcCache_url }}
+JdbcCache.user = {{ cantaloupe_JdbcCache_user }}
+JdbcCache.password = {{ cantaloupe_JdbcCache_password }}
+JdbcCache.connection_timeout = {{ cantaloupe_JdbcCache_connection_timeout }}
+JdbcCache.derivative_image_table = {{ cantaloupe_JdbcCache_derivative_image_table }}
+JdbcCache.info_table = {{ cantaloupe_JdbcCache_info_table }}
+
+#----------------------------------------
+# S3Cache
+#----------------------------------------
+
+S3Cache.endpoint = {{ cantaloupe_S3Cache_endpoint }}
+S3Cache.access_key_id = {{ cantaloupe_S3Cache_access_key_id }}
+S3Cache.secret_key = {{ cantaloupe_S3Cache_secret_key }}
+S3Cache.bucket.name = {{ cantaloupe_S3Cache_bucket_name }}
+S3Cache.object_key_prefix = {{ cantaloupe_S3Cache_object_key_prefix }}
+S3Cache.max_connections = {{ cantaloupe_S3Cache_max_connections }}
+
+#----------------------------------------
+# AzureStorageCache
+#----------------------------------------
+
+AzureStorageCache.account_name = {{ cantaloupe_AzureStorageCache_account_name }}
+AzureStorageCache.account_key = {{ cantaloupe_AzureStorageCache_account_key }}
+AzureStorageCache.container_name = {{ cantaloupe_AzureStorageCache_container_name }}
+AzureStorageCache.object_key_prefix = {{ cantaloupe_AzureStorageCache_object_key_prefix }}
+
+#----------------------------------------
+# RedisCache
+#----------------------------------------
+
+RedisCache.host = {{ cantaloupe_RedisCache_host }}
+RedisCache.port = {{ cantaloupe_RedisCache_port }}
+RedisCache.ssl = {{ cantaloupe_RedisCache_ssl }}
+RedisCache.password = {{ cantaloupe_RedisCache_password }}
+RedisCache.database = {{ cantaloupe_RedisCache_database }}
+
+###########################################################################
+# OVERLAYS
+###########################################################################
+
+overlays.enabled = {{ cantaloupe_overlays_enabled }}
+overlays.strategy = {{ cantaloupe_overlays_strategy }}
+overlays.BasicStrategy.type = {{ cantaloupe_overlays_BasicStrategy_type }}
+overlays.BasicStrategy.image = {{ cantaloupe_overlays_BasicStrategy_image }}
+overlays.BasicStrategy.string = {{ cantaloupe_overlays_BasicStrategy_string }}
+overlays.BasicStrategy.string.font = {{ cantaloupe_overlays_BasicStrategy_string_font }}
+overlays.BasicStrategy.string.font.size = {{ cantaloupe_overlays_BasicStrategy_string_font_size }}
+overlays.BasicStrategy.string.font.min_size = {{ cantaloupe_overlays_BasicStrategy_string_font_min_size }}
+overlays.BasicStrategy.string.font.weight = {{ cantaloupe_overlays_BasicStrategy_string_font_weight }}
+overlays.BasicStrategy.string.glyph_spacing = {{ cantaloupe_overlays_BasicStrategy_string_glyph_spacing }}
+overlays.BasicStrategy.string.color = {{ cantaloupe_overlays_BasicStrategy_string_color }}
+overlays.BasicStrategy.string.stroke.color = {{ cantaloupe_overlays_BasicStrategy_string_stroke_color }}
+overlays.BasicStrategy.string.stroke.width = {{ cantaloupe_overlays_BasicStrategy_string_stroke_width }}
+overlays.BasicStrategy.string.background.color = {{ cantaloupe_overlays_BasicStrategy_string_background_color }}
+overlays.BasicStrategy.position = {{ cantaloupe_overlays_BasicStrategy_position }}
+overlays.BasicStrategy.inset = {{ cantaloupe_overlays_BasicStrategy_inset }}
+overlays.BasicStrategy.output_width_threshold = {{ cantaloupe_overlays_BasicStrategy_output_width_threshold }}
+overlays.BasicStrategy.output_height_threshold = {{ cantaloupe_overlays_BasicStrategy_output_height_threshold }}
+
+###########################################################################
+# REDACTIONS
+###########################################################################
+
+redaction.enabled = {{ cantaloupe_redaction_enabled }}
+
+###########################################################################
+# LOGGING
+###########################################################################
+
+#----------------------------------------
+# Application Log
+#----------------------------------------
+
+log.application.level = {{ cantaloupe_log_application_level }}
+log.application.ConsoleAppender.enabled = {{ cantaloupe_log_application_ConsoleAppender_enabled }}
+log.application.FileAppender.enabled = {{ cantaloupe_log_application_FileAppender_enabled }}
+log.application.FileAppender.pathname = {{ cantaloupe_log_application_FileAppender_pathname }}
+log.application.RollingFileAppender.enabled = {{ cantaloupe_log_application_RollingFileAppender_enabled }}
+log.application.RollingFileAppender.pathname = {{ cantaloupe_log_application_RollingFileAppender_pathname }}
+log.application.RollingFileAppender.policy = {{ cantaloupe_log_application_RollingFileAppender_policy }}
+log.application.RollingFileAppender.TimeBasedRollingPolicy.filename_pattern = {{ cantaloupe_log_application_RollingFileAppender_TimeBasedRollingPolicy_filename_pattern }}
+log.application.RollingFileAppender.TimeBasedRollingPolicy.max_history = {{ cantaloupe_log_application_RollingFileAppender_TimeBasedRollingPolicy_max_history }}
+log.application.SyslogAppender.enabled = {{ cantaloupe_log_application_SyslogAppender_enabled }}
+log.application.SyslogAppender.host = {{ cantaloupe_log_application_SyslogAppender_host }}
+log.application.SyslogAppender.port = {{ cantaloupe_log_application_SyslogAppender_port }}
+log.application.SyslogAppender.facility = {{ cantaloupe_log_application_SyslogAppender_facility }}
+
+#----------------------------------------
+# Error Log
+#----------------------------------------
+
+log.error.FileAppender.enabled = {{ cantaloupe_log_error_FileAppender_enabled }}
+log.error.FileAppender.pathname = {{ cantaloupe_log_error_FileAppender_pathname }}
+log.error.RollingFileAppender.enabled = {{ cantaloupe_log_error_RollingFileAppender_enabled }}
+log.error.RollingFileAppender.pathname = {{ cantaloupe_log_error_RollingFileAppender_pathname }}
+log.error.RollingFileAppender.policy = {{ cantaloupe_log_error_RollingFileAppender_policy }}
+log.error.RollingFileAppender.TimeBasedRollingPolicy.filename_pattern = {{ cantaloupe_log_error_RollingFileAppender_TimeBasedRollingPolicy_filename_pattern }}
+log.error.RollingFileAppender.TimeBasedRollingPolicy.max_history = {{ cantaloupe_log_error_RollingFileAppender_TimeBasedRollingPolicy_max_history }}
+
+#----------------------------------------
+# Access Log
+#----------------------------------------
+
+log.access.ConsoleAppender.enabled = {{ cantaloupe_log_access_ConsoleAppender_enabled }}
+log.access.FileAppender.enabled = {{ cantaloupe_log_access_FileAppender_enabled }}
+log.access.FileAppender.pathname = {{ cantaloupe_log_access_FileAppender_pathname }}
+log.access.RollingFileAppender.enabled = {{ cantaloupe_log_access_RollingFileAppender_enabled }}
+log.access.RollingFileAppender.pathname = {{ cantaloupe_log_access_RollingFileAppender_pathname }}
+log.access.RollingFileAppender.policy = {{ cantaloupe_log_access_RollingFileAppender_policy }}
+log.access.RollingFileAppender.TimeBasedRollingPolicy.filename_pattern = {{ cantaloupe_log_access_RollingFileAppender_TimeBasedRollingPolicy_filename_pattern }}
+log.access.RollingFileAppender.TimeBasedRollingPolicy.max_history = {{ cantaloupe_log_access_RollingFileAppender_TimeBasedRollingPolicy_max_history }}
+log.access.SyslogAppender.enabled = {{ cantaloupe_log_access_SyslogAppender_enabled }}
+log.access.SyslogAppender.host = {{ cantaloupe_log_access_SyslogAppender_host }}
+log.access.SyslogAppender.port = {{ cantaloupe_log_access_SyslogAppender_port }}
+log.access.SyslogAppender.facility = {{ cantaloupe_log_access_SyslogAppender_facility }}

@@ -1,0 +1,20 @@
+---
+
+language: bash
+
+env:
+  - distro=centos7 init=/sbin/init
+
+services:
+  - docker
+
+before_install:
+  - 'docker pull geerlingguy/docker-${distro}-ansible:latest'
+
+# Assume we've named our GitHub repo the same as our role
+script:
+  - role_name=${TRAVIS_BUILD_DIR##*/}
+  - container_id=$(mktemp)
+  - idempotence=$(mktemp)
+  - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/${role_name}:ro geerlingguy/docker-${distro}-ansible:latest "${init}" > "${container_id}"'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/${role_name}/tests/test.yml --syntax-check'

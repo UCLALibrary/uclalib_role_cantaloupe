@@ -1,0 +1,55 @@
+---
+
+- name: Download and Unarchive cantaloupe
+  unarchive:
+    remote_src: "yes"
+    src: "{{ cantaloupe_url }}"
+    dest: "{{ cantaloupe_install_path }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    mode: "0640"
+    creates: "{{ cantaloupe_install_path }}/cantaloupe-{{ cantaloupe_version }}"
+
+- name: Set correct ownership on the cantaloupe install directory
+  file:
+    path: "{{ cantaloupe_install_path }}/cantaloupe-{{ cantaloupe_version }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    state: "directory"
+    recurse: "yes"
+
+- name: Create cantaloupe symlink path
+  file:
+    src: "{{ cantaloupe_install_path }}/cantaloupe-{{ cantaloupe_version }}"
+    dest: "{{ cantaloupe_symlink_path }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    state: "link"
+
+- name: Create cantaloupe log directory
+  file:
+    path: "{{ cantaloupe_log_dir }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    mode: "0750"
+    state: "directory"
+
+- name: Put in place the cantaloupe WAR file in the webapps directory
+  copy:
+    remote_src: "yes"
+    src: "{{ cantaloupe_symlink_path }}/cantaloupe-{{ cantaloupe_version }}.war"
+    dest: "{{ cantaloupe_base_dir }}/webapps/cantaloupe.war"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+
+- name: Create cantaloupe cache, temp, and log directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ cantaloupe_tomcat_user }}"
+    group: "{{ cantaloupe_tomcat_user }}"
+    mode: "0750"
+    state: "directory"
+  with_items:
+    - "{{ cantaloupe_FilesystemCache_pathname }}"
+    - "{{ cantaloupe_temp_pathname }}"
+    - "{{ cantaloupe_log_dir }}"

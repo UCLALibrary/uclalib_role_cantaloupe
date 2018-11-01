@@ -1,0 +1,18 @@
+---
+
+- include_tasks: download_install.yml
+  tags:
+    - cantaloupe-install
+
+- include_tasks: setup.yml
+  tags:
+    - cantaloupe-setup
+
+- include_tasks: configure.yml
+  tags:
+    - cantaloupe-config
+
+- include_tasks: configure_delegate.yml
+  tags:
+    - cantaloupe-delegate
+  when: cantaloupe_delegate_script_enabled == "true"
