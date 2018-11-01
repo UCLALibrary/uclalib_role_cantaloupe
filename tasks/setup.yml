@@ -24,6 +24,5 @@
     path: "/etc/httpd/vhosts.d/tomcatapps.httpd.conf"
     line: "  Include conf.d/cantaloupe.conf"
     insertafter: "ServerName"
-    firstmatch: "yes"
   notify:
     - restart httpd
