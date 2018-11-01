@@ -10,7 +10,7 @@ JAVA_OPTS="-Xms{{ cantaloupe_min_mem }} -Xmx{{ cantaloupe_max_mem }} ${JAVA_OPTS
 export JAVA_OPTS
 
 # Path to the common Tomcat binaries and libraries shared by all Tomcat instances
-export CATALINA_HOME=/usr/local/tomcat7
+export CATALINA_HOME=/usr/local/tomcat{{ tomcat_major_version }}
 
 # Path to this Fedora Tomcat instance
 export CATALINA_BASE={{ cantaloupe_base_dir }}
@@ -23,7 +23,7 @@ LOCKFILE=/var/lock/subsys/{{ cantaloupe_tomcat_user }}
 
 {% if cantaloupe_delegate_script_enabled == "true" %}
 # Set environment variables for cantaloupe delegate script
-# to interact with Fedora as an image source 
+# to interact with Fedora as an image source
 export FEDORA_URL="{{ cantaloupe_fedora_url }}"
 export FEDORA_BASE_PATH="{{ cantaloupe_fedora_base_path }}"
 {% endif %}
