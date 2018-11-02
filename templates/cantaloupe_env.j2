@@ -6,6 +6,7 @@ TOMCAT_USER={{ cantaloupe_tomcat_user }}
 # Java options specific for Cantaloupe
 JAVA_OPTS="-Dcantaloupe.config={{ cantaloupe_properties_path }} ${JAVA_OPTS}"
 JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server ${JAVA_OPTS}"
+JAVA_OPTS="-Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true ${JAVA_OPTS}"
 JAVA_OPTS="-Xms{{ cantaloupe_min_mem }} -Xmx{{ cantaloupe_max_mem }} ${JAVA_OPTS}"
 export JAVA_OPTS
 
