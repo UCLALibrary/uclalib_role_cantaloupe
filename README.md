@@ -51,6 +51,14 @@ Reference the following:
 
 to determine what options are available to customize.
 
+Tags
+------------
+
+The following tags are available to run specific task sets:
+* `cantaloupe-install` - download/install cantaloupe and create filesystem structure
+* `cantaloupe-setup` - set-up of Apache Tomcat environment variables and HTTPD virtual host files
+* `cantaloupe-config` - puts in place cantaloupe configuration file
+* `cantaloupe-delegate` - puts in place cantaloupe delegate script (only if enabled)
 
 Dependencies
 ------------
