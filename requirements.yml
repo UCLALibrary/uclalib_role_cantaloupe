@@ -1,0 +1,13 @@
+# Ansible role requirements for a Cantaloupe IIIF deployment
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_rhel7repos.git
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_epel.git
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_uclalibrepo.git
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_java.git
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_apache.git
+
+- src: git+https://github.com/UCLALibrary/uclalib_role_tomcat.git
