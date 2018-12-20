@@ -7,5 +7,6 @@
     owner: "{{ cantaloupe_tomcat_user }}"
     group: "{{ cantaloupe_tomcat_user }}"
     mode: "0640"
+    force: "yes"
   notify:
     - restart cantaloupe
