@@ -51,6 +51,21 @@ Reference the following:
 
 to determine what options are available to customize.
 
+Cantaloupe Download URL Note
+----------------------------
+
+The default value for the `cantaloupe_url` variable is:
+
+`https://github.com/medusa-project/cantaloupe/releases/download/v{{ cantaloupe_version }}/cantaloupe-{{ cantaloupe_version }}.zip`
+
+If you are affiliated with UCLA, you have the option of overriding this default url value with:
+
+`http://pkgs.library.ucla.edu/cantaloupe/cantaloupe-{{ cantaloupe_version }}.zip`
+
+Versions of Cantaloupe available via the UCLA URL are:
+
+* `4.0.2`
+
 Tags
 ------------
 
